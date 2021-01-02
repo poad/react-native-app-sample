@@ -63,3 +63,5 @@ buck-out/
 /ios/Pods/
 
 ios/*.xcarchive
+
+keystore.p12
