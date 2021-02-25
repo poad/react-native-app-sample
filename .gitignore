@@ -65,3 +65,6 @@ buck-out/
 ios/*.xcarchive
 
 keystore.p12
+ios/exportOptions.plist
+ios/DistributionSummary.plist
+ios/Packaging.log

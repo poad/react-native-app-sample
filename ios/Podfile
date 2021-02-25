@@ -1,4 +1,4 @@
-source 'https://cdn.cocoapods.org/'
+# source 'https://cdn.cocoapods.org/'
 
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
@@ -19,7 +19,7 @@ target 'ReactNativeAppSample' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable these next few lines.
-  use_flipper!
+  use_flipper!({ 'Flipper' => '0.74.0' })
   post_install do |installer|
     flipper_post_install(installer)
   end
@@ -27,6 +27,7 @@ end
 
 target 'ReactNativeAppSample-tvOS' do
   # Pods for ReactNativeAppSample-tvOS
+  use_flipper!({ 'Flipper' => '0.74.0' })
 
   target 'ReactNativeAppSample-tvOSTests' do
     inherit! :search_paths
