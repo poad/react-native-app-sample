@@ -58,11 +58,9 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-pods-cache-
 
-      - name: Install Cocos Pods
+      - name: Install node modules
         run: |
           yarn install
-          cd ios
-          sudo gem install cocoapods && pod install
 
       - name: "#️⃣ Update Build Number"
         id: buildnumber
@@ -146,6 +144,7 @@ jobs:
           RCT_NO_LAUNCH_PACKAGER: 1
         run: |
           cd ios
+          sudo gem install cocoapods && pod install
           xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
           xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist
 
