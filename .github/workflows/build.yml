@@ -22,19 +22,12 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode_12.4.app/
       - name: Show Xcode version
         run: xcodebuild -version
-      - name: set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      
+
       - name: Add '--no-document' to gemrc
         run: |
           echo "install: --no-document" >> ~/.gemrc
           echo "update: --no-document" >> ~/.gemrc
+
       - name: Install and update Homebrew
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -68,6 +61,11 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-pods-cache-
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      
       - name: Install node modules
         run: |
           yarn install
@@ -130,6 +128,11 @@ jobs:
 
       - name: Test
         run: yarn test
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
 
       - name: Build and test for android
         run: |
