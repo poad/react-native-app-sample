@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-11
 
     strategy:
       matrix:
@@ -20,17 +20,89 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Set Xcode version
-        run: sudo xcode-select -switch /Applications/Xcode_12.4.app/
+        run: sudo xcode-select -s "/Applications/Xcode_12.5.1.app"
+
       - name: Show Xcode version
         run: xcodebuild -version
+
+      - name: Import iOS CodeSign Certificates
+        uses: Apple-Actions/import-codesign-certs@v1
+        id: develop-certificate
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+
+      - name: Import iOS CodeSign Certificates (for distibution)
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+          create-keychain: false
+          keychain-password: ${{ steps.develop-certificate.outputs.keychain-password }}
+          p12-file-base64: ${{ secrets.DISTRIBUTION_CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+
+      - name: Download Provisioning Profiles
+        uses: poad/apple-provisioning-profiles-downloader@v1.0.0
+        with: 
+          bundle-id: 'com.github.poad.*'
+          profile-type: 'IOS_APP_ADHOC'
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+      - name: Download Provisioning Profiles (for distibution)
+        uses: poad/apple-provisioning-profiles-downloader@v1.0.0
+        with: 
+          bundle-id: 'com.github.poad.*'
+          profile-type: IOS_APP_ADHOC
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+      - name: Generate exportOptions.plist
+        env:
+          TEAM_ID: ${{ secrets.TEAM_ID }}
+        run: |
+          PROVISONING_PROFILE_UUID=${{ secrets.PROVISONING_PROFILE_UUID }}
+          TEAM_ID=${{ secrets.TEAM_ID }}
+          touch ios/exportOptions.plist
+          cat exportOptions.plist.template | sed -e s/\$\{PROVISONING_PROFILE_UUID\}/${PROVISONING_PROFILE_UUID}/g | sed -e s/\$\{TEAM_ID\}/${TEAM_ID}/g >> ios/exportOptions.plist
+          cat ios/exportOptions.plist
+
+      - name: Import Android CodeSign Certificates
+        run: |
+          ANDROID_CERTIFICATES_FILE_PATH=$(pwd)/android/keystore.p12
+          echo "ANDROID_CERTIFICATES_FILE_PATH=${ANDROID_CERTIFICATES_FILE_PATH}" >> $GITHUB_ENV
+          echo ${{ secrets.ANDROID_CERTIFICATES_FILE_BASE64 }} | base64 -D -o ${ANDROID_CERTIFICATES_FILE_PATH}
+
+      - name: Configure Homebrew cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/Library/Caches/Homebrew/foo--*
+            ~/Library/Caches/Homebrew/downloads/*--foo-*
+          key: brew-${{ hashFiles('.github/brew-formulae') }}
+          restore-keys: brew-
 
       - name: Add '--no-document' to gemrc
         run: |
           echo "install: --no-document" >> ~/.gemrc
           echo "update: --no-document" >> ~/.gemrc
 
-      - name: Install and update Homebrew
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Update Homebrew
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew update --preinstall
@@ -48,91 +120,39 @@ jobs:
           key: brew-${{ hashFiles('.github/brew-formulae') }}
           restore-keys: brew-
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Setup watchman
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install watchman
           sudo gem update
-
+      
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      
+          architecture: x64
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
       - name: Install node modules
-        run: |
-          yarn install
-          
-      # - name: "#️⃣ Update Build Number"
-      #   id: buildnumber
-      #   uses: poad/xcode-build-number-auto-update@v1
-      #   with:
-      #     path: ./ios/ReactNativeAppSample/Info.plist
-      #     new-number: ${{ github.run_number }}
-
-      - name: Import iOS CodeSign Certificates
-        uses: Apple-Actions/import-codesign-certs@v1
-        id: develop-certificate
-        with:
-          p12-file-base64: ${{ secrets.CERTIFICATES_FILE_BASE64 }}
-          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
-
-      - name: Import iOS CodeSign Certificates (for distibution)
-        uses: Apple-Actions/import-codesign-certs@v1
-        with:
-          create-keychain: false
-          keychain-password: ${{ steps.develop-certificate.outputs.keychain-password }}
-          p12-file-base64: ${{ secrets.DISTRIBUTION_CERTIFICATES_FILE_BASE64 }}
-          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
-
-      - name: Import Android CodeSign Certificates
-        run: |
-          ANDROID_CERTIFICATES_FILE_PATH=$(pwd)/android/keystore.p12
-          echo "ANDROID_CERTIFICATES_FILE_PATH=${ANDROID_CERTIFICATES_FILE_PATH}" >> $GITHUB_ENV
-          echo ${{ secrets.ANDROID_CERTIFICATES_FILE_BASE64 }} | base64 -D -o ${ANDROID_CERTIFICATES_FILE_PATH}
-
-      - name: Download Provisioning Profiles
-        uses: apple-actions/download-provisioning-profiles@v1
-        with: 
-          bundle-id: 'com.github.poad.*'
-          profile-type: 'IOS_APP_ADHOC'
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
-
-      - name: Download Provisioning Profiles (for distibution)
-        uses: apple-actions/download-provisioning-profiles@v1
-        with: 
-          bundle-id: 'com.github.poad.*'
-          profile-type: 'IOS_APP_ADHOC'
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
-
-      - name: Generate exportOptions.plist
-        env:
-          TEAM_ID: ${{ secrets.TEAM_ID }}
-        run: |
-          PROVISONING_PROFILE_UUID=${{ secrets.PROVISONING_PROFILE_UUID }}
-          TEAM_ID=${{ secrets.TEAM_ID }}
-          touch ios/exportOptions.plist
-          cat exportOptions.plist.template | sed -e s/\$\{PROVISONING_PROFILE_UUID\}/${PROVISONING_PROFILE_UUID}/g | sed -e s/\$\{TEAM_ID\}/${TEAM_ID}/g >> ios/exportOptions.plist
-          cat ios/exportOptions.plist
+        run: yarn install
 
       - name: Test
         run: yarn test
 
-      - name: set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Build and test for android
-        run: |
-          cd android
-          ./gradlew assembleDebug
-          ./gradlew test
 
       - name: Cache Pods dependencies
         uses: actions/cache@v2
@@ -150,11 +170,28 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-archive-cache-
 
+      - name: pods install
+        env:
+          RCT_NO_LAUNCH_PACKAGER: 1
+        run: |
+          cd ios
+          sudo gem install cocoapods && pod install && pod update RCT-Folly --no-repo-update
+
       - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
         run: |
           cd ios
-          sudo gem install cocoapods && pod install
           xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
           xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Build and test for android
+        run: |
+          cd android
+          ./gradlew assembleDebug
+          ./gradlew test
