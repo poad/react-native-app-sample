@@ -8,22 +8,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  setup:
     runs-on: macos-11
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_12.5.1.app"
-
-      - name: Show Xcode version
-        run: xcodebuild -version
 
       - name: Import iOS CodeSign Certificates
         uses: Apple-Actions/import-codesign-certs@v1
@@ -74,6 +64,62 @@ jobs:
           echo "ANDROID_CERTIFICATES_FILE_PATH=${ANDROID_CERTIFICATES_FILE_PATH}" >> $GITHUB_ENV
           echo ${{ secrets.ANDROID_CERTIFICATES_FILE_BASE64 }} | base64 -D -o ${ANDROID_CERTIFICATES_FILE_PATH}
 
+  build:
+    runs-on: macos-11
+
+    needs: setup
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          architecture: x64
+
+      - name: Install node modules
+        run: yarn install
+
+      - name: Test
+        run: yarn test
+
+  build-ios:
+    runs-on: macos-11
+
+    needs: build
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - name: Set Xcode version
+        run: sudo xcode-select -s "/Applications/Xcode_12.5.1.app"
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Configure Homebrew cache
         uses: actions/cache@v2
         with:
@@ -88,18 +134,6 @@ jobs:
           echo "install: --no-document" >> ~/.gemrc
           echo "update: --no-document" >> ~/.gemrc
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
       - name: Update Homebrew
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -109,49 +143,17 @@ jobs:
           brew link --overwrite python@3.9
           brew upgrade
 
-      - name: Configure Homebrew cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/Library/Caches/Homebrew/foo--*
-            ~/Library/Caches/Homebrew/downloads/*--foo-*
-          key: brew-${{ hashFiles('.github/brew-formulae') }}
-          restore-keys: brew-
-
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
       - name: Setup watchman
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install watchman
           sudo gem update
-      
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          architecture: x64
 
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
           bundler-cache: true
-
-      - name: Install node modules
-        run: yarn install
-
-      - name: Test
-        run: yarn test
-
-
       - name: Cache Pods dependencies
         uses: actions/cache@v2
         with:
@@ -182,6 +184,29 @@ jobs:
           cd ios
           xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
           xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist
+
+
+  build-android:
+    runs-on: macos-11
+
+    needs: build
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: set up JDK 11
         uses: actions/setup-java@v1
