@@ -213,7 +213,7 @@ jobs:
           RCT_NO_LAUNCH_PACKAGER: 1
         run: |
           cd ios
-          xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
+          xcodebuild clean build -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO
 
   build-android:
     runs-on: macos-11
