@@ -196,7 +196,8 @@ jobs:
           RCT_NO_LAUNCH_PACKAGER: 1
         run: |
           cd ios
-          sudo gem install cocoapods && pod install
+          rm -rf Podfile.lock Pods
+          sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-updat
 
       - name: iOS app build
         if: github.actor != 'dependabot[bot]'

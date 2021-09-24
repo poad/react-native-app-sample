@@ -153,7 +153,8 @@ jobs:
           RCT_NO_LAUNCH_PACKAGER: 1
         run: |
           cd ios
-          sudo gem install cocoapods && pod install
+          rm -rf Podfile.lock Pods
+          sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-update
           xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
           xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist
 
