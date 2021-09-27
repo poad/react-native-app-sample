@@ -21,7 +21,7 @@
     "@babel/runtime": "^7.15.4",
     "@swc/cli": "^0.1.50",
     "@swc/core": "^1.2.91",
-    "@swc/jest": "^0.2.3",
+    "@swc/jest": "^0.2.4",
     "@react-native-community/eslint-config": "^3.0.0",
     "@types/jest": "^27.0.2",
     "@types/react-native": "^0.65.1",
