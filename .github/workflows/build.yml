@@ -197,7 +197,7 @@ jobs:
         run: |
           cd ios
           rm -rf Podfile.lock Pods
-          sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-updat
+          sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-update
 
       - name: iOS app build
         if: github.actor != 'dependabot[bot]'
