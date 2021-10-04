@@ -20,7 +20,7 @@
     "@babel/core": "^7.15.5",
     "@babel/runtime": "^7.15.4",
     "@swc/cli": "^0.1.51",
-    "@swc/core": "^1.2.92",
+    "@swc/core": "^1.2.93",
     "@swc/jest": "^0.2.4",
     "@react-native-community/eslint-config": "^3.0.0",
     "@types/jest": "^27.0.2",
