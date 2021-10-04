@@ -14,7 +14,7 @@
     "@jest/create-cache-key-function": "^27.2.4",
     "@types/react": "^17",
     "react": "17.0.2",
-    "react-native": "^0.65.1"
+    "react-native": "^0.66.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
