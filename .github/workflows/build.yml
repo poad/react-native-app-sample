@@ -268,6 +268,7 @@ jobs:
       - name: set up JDK 11
         uses: actions/setup-java@v2.3.1
         with:
+          distribution: 'zulu'
           java-version: 11
 
       - name: Build and test for android
