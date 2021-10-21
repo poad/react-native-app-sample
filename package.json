@@ -21,7 +21,7 @@
     "@react-native-community/eslint-config": "^3.0.1",
     "@swc/cli": "^0.1.51",
     "@swc/core": "^1.2.101",
-    "@swc/jest": "^0.2.4",
+    "@swc/jest": "^0.2.5",
     "@types/jest": "^27.0.2",
     "@types/react-native": "^0.65.9",
     "@types/react-test-renderer": "^17.0.1",
