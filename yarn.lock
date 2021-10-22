@@ -850,9 +850,9 @@
     strip-ansi "^6.0.0"
 
 "@jest/create-cache-key-function@^27.0.1":
-  version "27.3.0"
-  resolved "https://registry.yarnpkg.com/@jest/create-cache-key-function/-/create-cache-key-function-27.3.0.tgz#6c73077f1ee3a48730910b3432ddd5de3e0ec822"
-  integrity sha512-dvh4h0q5RybcqKmPEK5N1VS+5IF8DrWpIMgaMrFoAzLXc6eETdprkzyGC2BsOzBXw4NOCgSptO7KGrsI9TiCfg==
+  version "27.3.1"
+  resolved "https://registry.yarnpkg.com/@jest/create-cache-key-function/-/create-cache-key-function-27.3.1.tgz#95d0dda8fb5b340b29399ca1d4de11b78040ffd9"
+  integrity sha512-21lx0HRgkznc5Tc2WGiXVYQQ6Vdfohs6CkLV2FLogLRb52f6v9SiSIjTNflu23lzEmY4EalLgQLxCfhgvREV6w==
   dependencies:
     "@jest/types" "^27.2.5"
 
@@ -1399,9 +1399,9 @@
   integrity sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==
 
 "@types/node@*":
-  version "16.11.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.1.tgz#2e50a649a50fc403433a14f829eface1a3443e97"
-  integrity sha512-PYGcJHL9mwl1Ek3PLiYgyEKtwTMmkMw4vbiyz/ps3pfdRYLVv+SN7qHVAImrjdAXxgluDEw6Ph4lyv+m9UpRmA==
+  version "16.11.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.2.tgz#31c249c136c3f9b35d4b60fb8e50e01a1f0cc9a5"
+  integrity sha512-w34LtBB0OkDTs19FQHXy4Ig/TOXI4zqvXS2Kk1PAsRKZ0I+nik7LlMYxckW0tSNGtvWmzB+mrCTbuEjuB9DVsw==
 
 "@types/prettier@^2.1.5":
   version "2.4.1"
@@ -1413,10 +1413,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react-native@^0.65.9":
-  version "0.65.9"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.65.9.tgz#477e4358e7d7978e9400d91ae90c9805d7ec34ca"
-  integrity sha512-CYHmz66i88WpkQAkRmHGCQb8J7SWT0nWwMTN21AIfZJ3dQ5uz9c8+aFQS+nZpsphpa0cjcgqw3ilvMe/EJrM5w==
+"@types/react-native@^0.65.10":
+  version "0.65.10"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.65.10.tgz#5dad96570ae48b5e326445597e050dfb349a6d54"
+  integrity sha512-LKf/EgM4IiYVBSjTVvxfWQCzZW8X4TcLuoqd2jfzeRLpNAsX+W5dWh2QhtMM15IyS2TuI8YJNK4JU5wHLVxanQ==
   dependencies:
     "@types/react" "*"
 
@@ -1677,9 +1677,9 @@ anymatch@^3.0.3:
     picomatch "^2.0.4"
 
 appdirsjs@^1.2.4:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/appdirsjs/-/appdirsjs-1.2.5.tgz#c9888c8a0a908014533d5176ec56f1d5a8fd3700"
-  integrity sha512-UyaAyzj+7XLoKhbXJi4zoAw8IDXCiLNCKfQEiuCsCCTkDmiG1vpCliQn/MoUvO3DZqCN1i6gOahokcFtNSIrVA==
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/appdirsjs/-/appdirsjs-1.2.6.tgz#fccf9ee543315492867cacfcfd4a2b32257d30ac"
+  integrity sha512-D8wJNkqMCeQs3kLasatELsddox/Xqkhp+J07iXGyL54fVN7oc+nmNfYzGuCs1IEP6uBw+TfpuO3JKwc+lECy4w==
 
 argparse@^1.0.7:
   version "1.0.10"
@@ -2582,9 +2582,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.867:
-  version "1.3.874"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.874.tgz#75d68ce2b3a778346916ae1293f80f389ecf439c"
-  integrity sha512-OxEyMXzLi6Y9UMPgyjP6XSuIsgD1xgK2FWnek/toV3G0Zr89bKSuNaX8YRM5hWtSaNEiL/TqubOvwtDTU3pwZA==
+  version "1.3.877"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.877.tgz#956870eea7c9d8cf43cc54ea40687fee4dc0c12a"
+  integrity sha512-fT5mW5Giw5iyVukeHb2XvB4joBKvzHtl8Vs3QzE7APATpFMt/T7RWyUcIKSZzYkKQgpMbu+vDBTCHfQZvh8klA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -3133,9 +3133,9 @@ flatted@^3.1.0:
   integrity sha512-JaTY/wtrcSyvXJl4IMFHPKyFur1sE9AUqc0QnhOaJ0CxHtAoIV8pYDzeEfAaNEtGkOfq4gr3LBFmdXW5mOQFnA==
 
 flow-parser@0.*:
-  version "0.162.0"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.162.0.tgz#bd5317f71b38a71900979fa47528b68aeef099d1"
-  integrity sha512-tqn7GkffCpBkGl6cFPHk08gug2Gb+KgE4ShDJmYVUFAARKvwtgxiLbLk2pv22KMLtzin+OPeCku3UoBE66nQDg==
+  version "0.162.1"
+  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.162.1.tgz#128150cd483c4899719fb5ceb06744282e51a10d"
+  integrity sha512-yp0oSVaawR8p39PGhOb/TtclByOxJirI+DVPR99GkeRY8xZ/4gLt+BeqcLgJsed1tE1YwMgdiAYKSfhoLTFVeg==
 
 flow-parser@^0.121.0:
   version "0.121.0"
@@ -6036,9 +6036,9 @@ shell-quote@1.6.1:
     jsonify "~0.0.0"
 
 shell-quote@^1.6.1:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
-  integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.3.tgz#aa40edac170445b9a431e17bb62c0b881b9c4123"
+  integrity sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw==
 
 side-channel@^1.0.4:
   version "1.0.4"
