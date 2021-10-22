@@ -5,7 +5,7 @@
 	<key>destination</key>
 	<string>export</string>
     <key>method</key>
-    <string>ad-hoc</string>
+    <string>distribution</string>
     <key>provisioningProfiles</key>
     <dict>
         <key>com.github.poad.example.reactjs.native.ReactNativeAppSample</key>
