@@ -33,7 +33,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -198,15 +198,6 @@ jobs:
           cd ios
           rm -rf Podfile.lock Pods
           sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-update
-
-      - name: iOS app build
-        if: github.actor != 'dependabot[bot]'
-        env:
-          RCT_NO_LAUNCH_PACKAGER: 1
-        run: |
-          cd ios
-          xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
-          xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist
 
       - name: iOS app build (without export)
         if: github.actor == 'dependabot[bot]'
