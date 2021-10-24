@@ -210,7 +210,7 @@ jobs:
         run: |
           cd ios
           rm -rf Podfile.lock Pods
-          sudo gem install cocoapods && pod install
+          sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-update
           xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
           xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist
 
@@ -297,7 +297,7 @@ jobs:
           ORG_GRADLE_PROJECT_keyPassword : ${{ secrets.ANDROID_CERTIFICATES_PASSWORD }}
         run: |
           cd android
-          ./gradlew assembleRelese
+          ./gradlew assembleRelease
 
       - name: Lookup APK file
         run: |
