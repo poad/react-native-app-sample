@@ -7,6 +7,18 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  actions: read
+  checks: write
+  contents: none
+  deployments: none
+  issues: none
+  packages: none
+  pull-requests: write
+  repository-projects: none
+  security-events: write
+  statuses: write
+
 jobs:
   setup:
     runs-on: macos-11
