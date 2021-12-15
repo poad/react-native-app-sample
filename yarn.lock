@@ -5505,9 +5505,9 @@ range-parser@~1.2.1:
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
 react-devtools-core@^4.13.0:
-  version "4.21.0"
-  resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.21.0.tgz#a54c9a0fd7261491e616d6c87d1869e011d8521d"
-  integrity sha512-clGWwJHV5MHwTwYyKc+7FZHwzdbzrD2/AoZSkicUcr6YLc3Za9a9FaLhccWDHfjQ+ron9yzNhDT6Tv+FiPkD3g==
+  version "4.22.0"
+  resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.22.0.tgz#f5930091e8529fae3f0ae12725d1ea2834a0b7d6"
+  integrity sha512-OYY2FO+z+w/N7kVZr2x0rVOD2QCGZoRThbs1diJ2Az0rqtMxyk0JJvsr7FS9+b5CJkWQ2Ro810BCnySygOt2pA==
   dependencies:
     shell-quote "^1.6.1"
     ws "^7"
