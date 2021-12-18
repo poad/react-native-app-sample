@@ -75,7 +75,7 @@ jobs:
 
     steps:
       - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_13.1.app"
+        run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -99,7 +99,7 @@ jobs:
 
       - name: Download Provisioning Profiles
         if: github.actor != 'dependabot[bot]'
-        uses: poad/apple-provisioning-profiles-downloader@v1.0.1
+        uses: poad/apple-provisioning-profiles-downloader@v1.0.2
         with: 
           bundle-id: 'com.github.poad.*'
           profile-type: 'IOS_APP_ADHOC'
@@ -109,7 +109,7 @@ jobs:
 
       - name: Download Provisioning Profiles (for distibution)
         if: github.actor != 'dependabot[bot]'
-        uses: poad/apple-provisioning-profiles-downloader@v1.0.1
+        uses: poad/apple-provisioning-profiles-downloader@v1.0.2
         with: 
           bundle-id: 'com.github.poad.*'
           profile-type: IOS_APP_ADHOC
