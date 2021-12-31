@@ -75,20 +75,12 @@ jobs:
 
     steps:
       - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
+        run: sudo xcode-select -s "/Applications/Xcode_13.2.1.app"
 
       - name: Show Xcode version
         run: xcodebuild -version
 
       - name: Import iOS CodeSign Certificates
-        if: github.actor != 'dependabot[bot]'
-        uses: Apple-Actions/import-codesign-certs@v1
-        id: develop-certificate
-        with:
-          p12-file-base64: ${{ secrets.CERTIFICATES_FILE_BASE64 }}
-          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
-
-      - name: Import iOS CodeSign Certificates (for distibution)
         if: github.actor != 'dependabot[bot]'
         uses: Apple-Actions/import-codesign-certs@v1
         with:
@@ -101,18 +93,8 @@ jobs:
         if: github.actor != 'dependabot[bot]'
         uses: poad/apple-provisioning-profiles-downloader@v1.0.3
         with: 
-          bundle-id: 'com.github.poad.*'
-          profile-type: 'IOS_APP_ADHOC'
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
-
-      - name: Download Provisioning Profiles (for distibution)
-        if: github.actor != 'dependabot[bot]'
-        uses: poad/apple-provisioning-profiles-downloader@v1.0.3
-        with: 
-          bundle-id: 'com.github.poad.*'
-          profile-type: IOS_APP_ADHOC
+          bundle-id: 'com.github.poad.example.reactjs.native.ReactNativeAppSample'
+          profile-type: IOS_APP_STORE
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
@@ -124,12 +106,10 @@ jobs:
       - name: Generate exportOptions.plist
         if: github.actor != 'dependabot[bot]'
         env:
-          TEAM_ID: ${{ secrets.TEAM_ID }}
+          PLIST: ${{ secrets.EXPORT_OPTIONS_PLIST }}
         run: |
-          PROVISONING_PROFILE_UUID=${{ secrets.PROVISONING_PROFILE_UUID }}
-          TEAM_ID=${{ secrets.TEAM_ID }}
           touch ios/exportOptions.plist
-          cat exportOptions.plist.template | sed -e s/\$\{PROVISONING_PROFILE_UUID\}/${PROVISONING_PROFILE_UUID}/g | sed -e s/\$\{TEAM_ID\}/${TEAM_ID}/g >> ios/exportOptions.plist
+          echo "${PLIST}" >> ios/exportOptions.plist
           cat ios/exportOptions.plist
 
       - name: Get yarn cache directory path
@@ -209,7 +189,7 @@ jobs:
         run: |
           cd ios
           rm -rf Podfile.lock Pods
-          sudo gem install cocoapods && pod install --repo-update && pod update RCT-Folly --no-repo-update
+          sudo gem install cocoapods && pod install
 
       - name: iOS app build (without export)
         if: github.actor == 'dependabot[bot]'
