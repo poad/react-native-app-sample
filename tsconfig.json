@@ -16,6 +16,9 @@
     "resolveJsonModule": true
   },
   "exclude": [
-    "node_modules", "babel.config.cjs", metro.config.cjss", "jest.config.js"
+    "node_modules",
+    "babel.config.cjs",
+    "metro.config.cjs",
+    "jest.config.js"
   ]
 }
