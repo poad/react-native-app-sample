@@ -15,7 +15,7 @@
     "react-native": "^0.67.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
+    "@babel/core": "^7.16.10",
     "@babel/runtime": "^7.16.7",
     "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
