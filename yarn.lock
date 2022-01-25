@@ -1365,14 +1365,14 @@
     semver "^7.3.5"
     tsutils "^3.21.0"
 
-"@typescript-eslint/parser@^5.10.0":
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.10.0.tgz#8f59e036f5f1cffc178cacbd5ccdd02aeb96c91c"
-  integrity sha512-pJB2CCeHWtwOAeIxv8CHVGJhI5FNyJAIpx5Pt72YkK3QfEzt6qAlXZuyaBmyfOdM62qU0rbxJzNToPTVeJGrQw==
+"@typescript-eslint/parser@^5.10.1":
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.10.1.tgz#4ce9633cc33fc70bc13786cb793c1a76fe5ad6bd"
+  integrity sha512-GReo3tjNBwR5RnRO0K2wDIDN31cM3MmDtgyQ85oAxAmC5K3j/g85IjP+cDfcqDsDDBf1HNKQAD0WqOYL8jXqUA==
   dependencies:
-    "@typescript-eslint/scope-manager" "5.10.0"
-    "@typescript-eslint/types" "5.10.0"
-    "@typescript-eslint/typescript-estree" "5.10.0"
+    "@typescript-eslint/scope-manager" "5.10.1"
+    "@typescript-eslint/types" "5.10.1"
+    "@typescript-eslint/typescript-estree" "5.10.1"
     debug "^4.3.2"
 
 "@typescript-eslint/scope-manager@5.10.0":
@@ -2454,9 +2454,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.4.17:
-  version "1.4.51"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.51.tgz#a432f5a5d983ace79278a33057300cf949627e63"
-  integrity sha512-JNEmcYl3mk1tGQmy0EvL5eik/CKSBuzAyGP0QFdG6LIgxQe3II0BL1m2zKc2MZMf3uGqHWE1TFddJML0RpjSHQ==
+  version "1.4.52"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.52.tgz#ce44c6d6cc449e7688a4356b8c261cfeafa26833"
+  integrity sha512-JGkh8HEh5PnVrhU4HbpyyO0O791dVY6k7AdqfDeqbcRMeoGxtNHWT77deR2nhvbLe4dKpxjlDEvdEwrvRLGu2Q==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -4975,9 +4975,9 @@ pify@^4.0.1:
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
 pirates@^4.0.0, pirates@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.4.tgz#07df81e61028e402735cdd49db701e4885b4e6e6"
-  integrity sha512-ZIrVPH+A52Dw84R0L3/VS9Op04PuQ2SEoJL6bkshmiTic/HldyW9Tf7oH5mhJZBK7NmDx27vSMrYEXPXclpDKw==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.5.tgz#feec352ea5c3268fb23a37c702ab1699f35a5f3b"
+  integrity sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==
 
 pkg-dir@^3.0.0:
   version "3.0.0"
