@@ -198,7 +198,7 @@ jobs:
         uses: devbotsxyz/xcode-build@v1
         with:
           workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ios/ReactNativeAppSample
+          scheme: ReactNativeAppSample
 
   build-android:
     runs-on: macos-11

@@ -209,23 +209,28 @@ jobs:
       - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: devbotsxyz/xcode-archive@master
+        uses: devbotsxyz/xcode-archive@main
         with:
           workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ios/ReactNativeAppSample
+          scheme: ReactNativeAppSample
           archive-path: ios/ReactNativeAppSample.xcarchive
           code-sign-identity: destination
+
+      # - name: iOS app export
+      #   env:
+      #     RCT_NO_LAUNCH_PACKAGER: 1
+      #   uses: devbotsxyz/xcode-export-archive@main
+      #   with:
+      #     workspace: ios/ReactNativeAppSample.xcworkspace
+      #     scheme: ReactNativeAppSample
+      #     archive-path: ios/ReactNativeAppSample.xcarchive
+      #     export-path: ios/
 
       - name: iOS app export
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: devbotsxyz/xcode-export-archive@master
-        with:
-          workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ios/ReactNativeAppSample
-          archive-path: ios/ReactNativeAppSample.xcarchive
-          export-method: app-store
-          export-path: ios/
+        working-directory: ios
+        run: xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates
 
       - name: Lookup IPA file
         run: |
