@@ -84,7 +84,7 @@ jobs:
         if: github.actor != 'dependabot[bot]'
         uses: Apple-Actions/import-codesign-certs@v1
         with:
-          create-keychain: false
+          create-keychain: true
           keychain-password: ${{ steps.develop-certificate.outputs.keychain-password }}
           p12-file-base64: ${{ secrets.DISTRIBUTION_CERTIFICATES_FILE_BASE64 }}
           p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
@@ -195,9 +195,10 @@ jobs:
         if: github.actor == 'dependabot[bot]'
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        run: |
-          cd ios
-          xcodebuild clean build -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_ALLOWED=NO
+        uses: devbotsxyz/xcode-build@v1
+        with:
+          workspace: ios/ReactNativeAppSample.xcworkspace
+          scheme: ios/ReactNativeAppSample
 
   build-android:
     runs-on: macos-11

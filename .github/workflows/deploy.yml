@@ -84,7 +84,7 @@ jobs:
         if: github.actor != 'dependabot[bot]'
         uses: Apple-Actions/import-codesign-certs@v1
         with:
-          create-keychain: false
+          create-keychain: true
           keychain-password: ${{ steps.develop-certificate.outputs.keychain-password }}
           p12-file-base64: ${{ secrets.DISTRIBUTION_CERTIFICATES_FILE_BASE64 }}
           p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
@@ -198,15 +198,34 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-archive-cache-
 
-      - name: iOS app build
+      - name: pods install
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
         run: |
           cd ios
           rm -rf Podfile.lock Pods
           sudo gem install cocoapods && pod install
-          xcodebuild -workspace ReactNativeAppSample.xcworkspace -scheme ReactNativeAppSample archive -archivePath ReactNativeAppSample.xcarchive
-          xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates
+
+      - name: iOS app build
+        env:
+          RCT_NO_LAUNCH_PACKAGER: 1
+        uses: devbotsxyz/xcode-archive@master
+        with:
+          workspace: ios/ReactNativeAppSample.xcworkspace
+          scheme: ios/ReactNativeAppSample
+          archive-path: ios/ReactNativeAppSample.xcarchive
+          code-sign-identity: destination
+
+      - name: iOS app export
+        env:
+          RCT_NO_LAUNCH_PACKAGER: 1
+        uses: devbotsxyz/xcode-export-archive@master
+        with:
+          workspace: ios/ReactNativeAppSample.xcworkspace
+          scheme: ios/ReactNativeAppSample
+          archive-path: ios/ReactNativeAppSample.xcarchive
+          export-method: app-store
+          export-path: ios/
 
       - name: Lookup IPA file
         run: |
