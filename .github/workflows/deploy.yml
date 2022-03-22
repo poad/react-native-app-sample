@@ -74,6 +74,9 @@ jobs:
         node-version: [14.x, 16.x]
 
     steps:
+      - name: Show Xcode versions
+        run: ls -al /Applications/Xcode_*
+
       - name: Set Xcode version
         run: sudo xcode-select -s "/Applications/Xcode_13.2.1.app"
 
@@ -100,7 +103,7 @@ jobs:
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
-      - run: echo "${{ steps.dl-pp.outputs.profiles }}"
+      # - run: echo "${{ steps.dl-pp.outputs.profiles }}"
 
       - name: Checkout
         uses: actions/checkout@v3
