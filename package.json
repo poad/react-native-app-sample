@@ -11,14 +11,14 @@
     "bundle": "react-native bundle"
   },
   "dependencies": {
-    "react": "*",
+    "react": "^17",
     "react-native": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
     "@babel/runtime": "*",
     "@types/jest": "*",
-    "@types/react": "*",
+    "@types/react": "^18",
     "@types/react-native": "*",
     "@types/react-test-renderer": "*",
     "@typescript-eslint/eslint-plugin": "*",
