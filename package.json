@@ -30,9 +30,6 @@
     "react-test-renderer": "*",
     "typescript": "*"
   },
-  "resolutions": {
-    "async": "^3.2.2"
-  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [
