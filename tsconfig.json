@@ -5,14 +5,14 @@
     "module": "commonjs",
     "lib": ["ESNext"],
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "noEmit": true,
     "isolatedModules": true,
     "strict": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "resolveJsonModule": true
   },
   "exclude": [

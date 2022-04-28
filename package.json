@@ -20,14 +20,14 @@
     "@types/jest": "*",
     "@types/react": "^17",
     "@types/react-native": "*",
-    "@types/react-test-renderer": "*",
+    "@types/react-test-renderer": "^17",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
     "babel-jest": "*",
     "eslint": "*",
     "jest": "*",
     "metro-react-native-babel-preset": "*",
-    "react-test-renderer":"^17",
+    "react-test-renderer": "^17",
     "typescript": "*"
   },
   "jest": {
