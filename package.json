@@ -23,7 +23,7 @@
     "@types/react-test-renderer": "*",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
-    "babel-jest": "^27",
+    "babel-jest": "^28",
     "eslint": "*",
     "jest": "^27",
     "metro-react-native-babel-preset": "*",
