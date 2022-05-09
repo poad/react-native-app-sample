@@ -169,7 +169,8 @@ android {
             keyPassword 'android'
         }
     }
-    
+    namespace 'com.github.poad.example.reactjsnative'
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
