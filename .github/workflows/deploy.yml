@@ -78,7 +78,7 @@ jobs:
         run: ls -al /Applications/Xcode_*
 
       - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_13.2.0.app"
+        run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
 
       - name: Show Xcode version
         run: xcodebuild -version
