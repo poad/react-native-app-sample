@@ -43,16 +43,7 @@
     json5 "^2.2.1"
     semver "^6.3.0"
 
-"@babel/generator@^7.14.0":
-  version "7.18.6"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.18.6.tgz#9ab2d46d3cbf631f0e80f72e72874a04c3fc12a9"
-  integrity sha512-AIwwoOS8axIC5MZbhNHRLKi3D+DMpvDf9XUcu3pIVAfOHFT45f4AoDAltRbHIQomCipkCZxrNkfpOEHhJz/VKw==
-  dependencies:
-    "@babel/types" "^7.18.6"
-    "@jridgewell/gen-mapping" "^0.3.0"
-    jsesc "^2.5.1"
-
-"@babel/generator@^7.18.6", "@babel/generator@^7.7.2":
+"@babel/generator@^7.14.0", "@babel/generator@^7.18.6", "@babel/generator@^7.7.2":
   version "7.18.7"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.18.7.tgz#2aa78da3c05aadfc82dbac16c99552fc802284bd"
   integrity sha512-shck+7VLlY72a2w9c3zYWuE1pwOKEiQHV7GTUbSnhyl5eu3i04t30tBY82ZRWrDfo3gkakCFtevExnxbkf2a3A==
@@ -1049,7 +1040,7 @@
     "@jridgewell/set-array" "^1.0.0"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
+"@jridgewell/gen-mapping@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.2.tgz#c1aedc61e853f2bb9f5dfe6d4442d3b565b253b9"
   integrity sha512-mh65xKQAzI6iBcFzwv28KVWSmCkdRBWoOh+bYQGW3+6OZvbbN3TqMGo5hqYxQniRcH9F2VZIoJCm4pa3BPDK/A==
@@ -3685,36 +3676,7 @@ jest-serializer@^27.5.1:
     "@types/node" "*"
     graceful-fs "^4.2.9"
 
-jest-snapshot@^28.1.1:
-  version "28.1.1"
-  resolved "https://registry.yarnpkg.com/jest-snapshot/-/jest-snapshot-28.1.1.tgz#ab825c16c8d8b5e883bd57eee6ca8748c42ab848"
-  integrity sha512-1KjqHJ98adRcbIdMizjF5DipwZFbvxym/kFO4g4fVZCZRxH/dqV8TiBFCa6rqic3p0karsy8RWS1y4E07b7P0A==
-  dependencies:
-    "@babel/core" "^7.11.6"
-    "@babel/generator" "^7.7.2"
-    "@babel/plugin-syntax-typescript" "^7.7.2"
-    "@babel/traverse" "^7.7.2"
-    "@babel/types" "^7.3.3"
-    "@jest/expect-utils" "^28.1.1"
-    "@jest/transform" "^28.1.1"
-    "@jest/types" "^28.1.1"
-    "@types/babel__traverse" "^7.0.6"
-    "@types/prettier" "^2.1.5"
-    babel-preset-current-node-syntax "^1.0.0"
-    chalk "^4.0.0"
-    expect "^28.1.1"
-    graceful-fs "^4.2.9"
-    jest-diff "^28.1.1"
-    jest-get-type "^28.0.2"
-    jest-haste-map "^28.1.1"
-    jest-matcher-utils "^28.1.1"
-    jest-message-util "^28.1.1"
-    jest-util "^28.1.1"
-    natural-compare "^1.4.0"
-    pretty-format "^28.1.1"
-    semver "^7.3.5"
-
-jest-snapshot@^28.1.2:
+jest-snapshot@^28.1.1, jest-snapshot@^28.1.2:
   version "28.1.2"
   resolved "https://registry.yarnpkg.com/jest-snapshot/-/jest-snapshot-28.1.2.tgz#93d31b87b11b384f5946fe0767541496135f8d52"
   integrity sha512-wzrieFttZYfLvrCVRJxX+jwML2YTArOUqFpCoSVy1QUapx+LlV9uLbV/mMEhYj4t7aMeE9aSQFHSvV/oNoDAMA==
