@@ -165,7 +165,7 @@ jobs:
           brew update --preinstall
           cat "$(brew --repository)/Library/Taps/homebrew/homebrew-core/Formula/watchman.rb" > .github/brew-formulae
           sudo rm '/usr/local/bin/2to3'
-          brew link --overwrite python@3.9
+          brew link --overwrite python@3.10
           brew upgrade
 
       - name: Setup watchman
