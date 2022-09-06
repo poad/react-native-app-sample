@@ -31,9 +31,6 @@
     "ts-jest": "*",
     "typescript": "*"
   },
-  "resolutions": {
-    "shell-quote": "^1.7.3"
-  },
   "jest": {
     "preset": "react-native",
     "modulePaths": [
