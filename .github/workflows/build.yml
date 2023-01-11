@@ -64,140 +64,140 @@ jobs:
       - name: Test
         run: yarn test
 
-  build-ios:
-    runs-on: macos-11
+  # build-ios:
+  #   runs-on: macos-11
 
-    needs: build
+  #   needs: build
 
-    strategy:
-      matrix:
-        node-version: [14.x]
+  #   strategy:
+  #     matrix:
+  #       node-version: [14.x]
 
-    steps:
-      - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
+  #   steps:
+  #     - name: Set Xcode version
+  #       run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
 
-      - name: Show Xcode version
-        run: xcodebuild -version
+  #     - name: Show Xcode version
+  #       run: xcodebuild -version
 
-      - name: Import iOS CodeSign Certificates
-        if: github.actor != 'dependabot[bot]'
-        uses: Apple-Actions/import-codesign-certs@v1
-        with:
-          create-keychain: true
-          keychain-password: ${{ steps.develop-certificate.outputs.keychain-password }}
-          p12-file-base64: ${{ secrets.DISTRIBUTION_CERTIFICATES_FILE_BASE64 }}
-          p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+  #     - name: Import iOS CodeSign Certificates
+  #       if: github.actor != 'dependabot[bot]'
+  #       uses: Apple-Actions/import-codesign-certs@v1
+  #       with:
+  #         create-keychain: true
+  #         keychain-password: ${{ steps.develop-certificate.outputs.keychain-password }}
+  #         p12-file-base64: ${{ secrets.DISTRIBUTION_CERTIFICATES_FILE_BASE64 }}
+  #         p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
 
-      - name: Download Provisioning Profiles
-        if: github.actor != 'dependabot[bot]'
-        uses: poad/apple-provisioning-profiles-downloader@v1.0.7
-        with: 
-          bundle-id: 'com.github.poad.example.reactjs.native.ReactNativeAppSample'
-          profile-type: IOS_APP_STORE
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+  #     - name: Download Provisioning Profiles
+  #       if: github.actor != 'dependabot[bot]'
+  #       uses: poad/apple-provisioning-profiles-downloader@v1.0.7
+  #       with: 
+  #         bundle-id: 'com.github.poad.example.reactjs.native.ReactNativeAppSample'
+  #         profile-type: IOS_APP_STORE
+  #         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+  #         api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+  #         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
-      - name: Checkout
-        uses: actions/checkout@v3
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Generate exportOptions.plist
-        if: github.actor != 'dependabot[bot]'
-        env:
-          PLIST: ${{ secrets.EXPORT_OPTIONS_PLIST }}
-        run: |
-          touch ios/exportOptions.plist
-          echo "${PLIST}" >> ios/exportOptions.plist
-          cat ios/exportOptions.plist
+  #     - name: Generate exportOptions.plist
+  #       if: github.actor != 'dependabot[bot]'
+  #       env:
+  #         PLIST: ${{ secrets.EXPORT_OPTIONS_PLIST }}
+  #       run: |
+  #         touch ios/exportOptions.plist
+  #         echo "${PLIST}" >> ios/exportOptions.plist
+  #         cat ios/exportOptions.plist
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+  #     - uses: actions/cache@v3
+  #       id: yarn-cache
+  #       with:
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn-
       
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          architecture: x64
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         architecture: x64
 
-      - name: Install node modules
-        run: yarn install
+  #     - name: Install node modules
+  #       run: yarn install
 
-      - name: Configure Homebrew cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/Library/Caches/Homebrew/foo--*
-            ~/Library/Caches/Homebrew/downloads/*--foo-*
-          key: brew-${{ hashFiles('.github/brew-formulae') }}
-          restore-keys: brew-
+  #     - name: Configure Homebrew cache
+  #       uses: actions/cache@v3
+  #       with:
+  #         path: |
+  #           ~/Library/Caches/Homebrew/foo--*
+  #           ~/Library/Caches/Homebrew/downloads/*--foo-*
+  #         key: brew-${{ hashFiles('.github/brew-formulae') }}
+  #         restore-keys: brew-
 
-      - name: Add '--no-document' to gemrc
-        run: |
-          echo "install: --no-document" >> ~/.gemrc
-          echo "update: --no-document" >> ~/.gemrc
+  #     - name: Add '--no-document' to gemrc
+  #       run: |
+  #         echo "install: --no-document" >> ~/.gemrc
+  #         echo "update: --no-document" >> ~/.gemrc
 
-      - name: Update Homebrew
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          brew update --preinstall
-          cat "$(brew --repository)/Library/Taps/homebrew/homebrew-core/Formula/watchman.rb" > .github/brew-formulae
-          sudo rm '/usr/local/bin/2to3'
-          brew link --overwrite python@3.10
-          brew upgrade
+  #     - name: Update Homebrew
+  #       run: |
+  #         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  #         brew update --preinstall
+  #         cat "$(brew --repository)/Library/Taps/homebrew/homebrew-core/Formula/watchman.rb" > .github/brew-formulae
+  #         sudo rm '/usr/local/bin/2to3'
+  #         brew link --overwrite python@3.10
+  #         brew upgrade
 
-      - name: Setup watchman
-        env:
-          HOMEBREW_NO_AUTO_UPDATE: 1
-        run: |
-          brew install watchman
-          sudo gem update
+  #     - name: Setup watchman
+  #       env:
+  #         HOMEBREW_NO_AUTO_UPDATE: 1
+  #       run: |
+  #         brew install watchman
+  #         sudo gem update
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
-      - name: Cache Pods dependencies
-        uses: actions/cache@v3
-        with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.6
+  #         bundler-cache: true
+  #     - name: Cache Pods dependencies
+  #       uses: actions/cache@v3
+  #       with:
+  #         path: Pods
+  #         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-pods-
 
-      - name: Cache Xcode archive
-        uses: actions/cache@v3
-        with:
-          path: ios/Pods
-          key: ${{ runner.OS }}-archive-cache-${{ hashFiles('**/ios/ReactNativeAppSample.xcarchive') }}
-          restore-keys: |
-            ${{ runner.OS }}-archive-cache-
+  #     - name: Cache Xcode archive
+  #       uses: actions/cache@v3
+  #       with:
+  #         path: ios/Pods
+  #         key: ${{ runner.OS }}-archive-cache-${{ hashFiles('**/ios/ReactNativeAppSample.xcarchive') }}
+  #         restore-keys: |
+  #           ${{ runner.OS }}-archive-cache-
 
-      - name: pods install
-        env:
-          RCT_NO_LAUNCH_PACKAGER: 1
-        run: |
-          cd ios
-          rm -rf Podfile.lock Pods
-          sudo gem install cocoapods && pod install
+  #     - name: pods install
+  #       env:
+  #         RCT_NO_LAUNCH_PACKAGER: 1
+  #       run: |
+  #         cd ios
+  #         rm -rf Podfile.lock Pods
+  #         sudo gem install cocoapods && pod install
 
-      - name: iOS app build (without export)
-        if: github.actor == 'dependabot[bot]'
-        env:
-          RCT_NO_LAUNCH_PACKAGER: 1
-        uses: devbotsxyz/xcode-build@v1
-        with:
-          workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ReactNativeAppSample
+  #     - name: iOS app build (without export)
+  #       if: github.actor == 'dependabot[bot]'
+  #       env:
+  #         RCT_NO_LAUNCH_PACKAGER: 1
+  #       uses: devbotsxyz/xcode-build@v1
+  #       with:
+  #         workspace: ios/ReactNativeAppSample.xcworkspace
+  #         scheme: ReactNativeAppSample
 
   build-android:
     runs-on: macos-11
