@@ -95,7 +95,7 @@ jobs:
       - name: Download Provisioning Profiles
         if: github.actor != 'dependabot[bot]'
         id: dl-pp
-        uses: poad/apple-provisioning-profiles-downloader@v1.0.7
+        uses: poad/apple-provisioning-profiles-downloader@v1.0.8
         with: 
           bundle-id: 'com.github.poad.example.reactjs.native.ReactNativeAppSample'
           profile-type: IOS_APP_STORE
