@@ -34,7 +34,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - name: Checkout
@@ -71,14 +71,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - name: Show Xcode versions
         run: ls -al /Applications/Xcode_*
 
       - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
+        run: sudo xcode-select -s "/Applications/Xcode_14.2.app"
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -220,23 +220,17 @@ jobs:
           workspace: ios/ReactNativeAppSample.xcworkspace
           scheme: ReactNativeAppSample
           archive-path: ios/ReactNativeAppSample.xcarchive
-          code-sign-identity: destination
-
-      # - name: iOS app export
-      #   env:
-      #     RCT_NO_LAUNCH_PACKAGER: 1
-      #   uses: devbotsxyz/xcode-export-archive@main
-      #   with:
-      #     workspace: ios/ReactNativeAppSample.xcworkspace
-      #     scheme: ReactNativeAppSample
-      #     archive-path: ios/ReactNativeAppSample.xcarchive
-      #     export-path: ios/
 
       - name: iOS app export
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
         working-directory: ios
-        run: xcodebuild -exportArchive -archivePath ./ReactNativeAppSample.xcarchive -exportPath . -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath ./ReactNativeAppSample.xcarchive \
+            -exportPath . \
+            -exportOptionsPlist exportOptions.plist \
+            -allowProvisioningUpdates
 
       - name: Lookup IPA file
         run: |
@@ -268,7 +262,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - name: Checkout
