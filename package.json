@@ -31,6 +31,9 @@
     "ts-jest": "*",
     "typescript": "*"
   },
+  "resolutions": {
+    "react-native": ">=0.71.3"
+  },
   "jest": {
     "preset": "react-native",
     "modulePaths": [
