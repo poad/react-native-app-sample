@@ -75,7 +75,7 @@ jobs:
 
     steps:
       - name: Set Xcode version
-        run: sudo xcode-select -s "/Applications/Xcode_13.2.app"
+        run: sudo xcode-select -s "/Applications/Xcode_13.2.1.app"
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -153,7 +153,7 @@ jobs:
           cat "$(brew --repository)/Library/Taps/homebrew/homebrew-core/Formula/watchman.rb" > .github/brew-formulae
           sudo rm '/usr/local/bin/2to3'
           brew link --overwrite python@3.10
-          brew upgrade
+          brew upgrade || true
 
       - name: Setup watchman
         env:
@@ -198,6 +198,7 @@ jobs:
         with:
           workspace: ios/ReactNativeAppSample.xcworkspace
           scheme: ReactNativeAppSample
+          code-sign-identity: destination
 
   build-android:
     runs-on: macos-11
