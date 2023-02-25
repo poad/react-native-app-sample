@@ -160,11 +160,12 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install watchman
+          sudo gem install xcpretty
           sudo gem update
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: 2.7.6
           bundler-cache: true
       - name: Cache Pods dependencies
         uses: actions/cache@v3
@@ -195,7 +196,6 @@ jobs:
           RCT_NO_LAUNCH_PACKAGER: 1
         uses: mxcl/xcodebuild@v1
         with:
-          xcode: ^13
           platform: iOS
           action: build
           configuration: 
@@ -257,6 +257,10 @@ jobs:
           java-version: 11
 
       - name: Build and test for android
+        env:
+          DEFAULT_JVM_OPTS: -Xmx2048m -Xms512m
+          GRADLE_OPTS: -Xmx2048m -Xms512m
+          JAVA_OPTS: -Xmx2048m -Xms512m
         run: |
           cd android
           ./gradlew assembleDebug
