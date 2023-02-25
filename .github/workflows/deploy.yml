@@ -215,12 +215,13 @@ jobs:
       - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: devbotsxyz/xcode-archive@main
+        uses: mxcl/xcodebuild@v1
         with:
-          workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ReactNativeAppSample
-          archive-path: ios/ReactNativeAppSample.xcarchive
-          code-sign-identity: destination
+          xcode: ^13
+          platform: iOS
+          action: build
+          configuration: 
+          working-directory: ios
 
       - name: iOS app export
         env:

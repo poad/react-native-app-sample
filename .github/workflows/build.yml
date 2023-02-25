@@ -190,15 +190,16 @@ jobs:
           rm -rf Podfile.lock Pods
           sudo gem install cocoapods && pod install
 
-      - name: iOS app build (without export)
-        if: github.actor == 'dependabot[bot]'
+      - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: devbotsxyz/xcode-build@v1
+        uses: mxcl/xcodebuild@v1
         with:
-          workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ReactNativeAppSample
-          code-sign-identity: destination
+          xcode: ^13
+          platform: iOS
+          action: build
+          configuration: 
+          working-directory: ios
 
   build-android:
     runs-on: macos-11
