@@ -160,7 +160,6 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install watchman
-          sudo gem install xcpretty
           sudo gem update
 
       - uses: ruby/setup-ruby@v1

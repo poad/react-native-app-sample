@@ -173,7 +173,6 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install watchman
-          sudo gem install xcpretty
           sudo gem update
 
       - uses: ruby/setup-ruby@v1
@@ -197,14 +196,6 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-archive-cache-
 
-      - name: Cache Xcode archive
-        uses: actions/cache@v3
-        with:
-          path: ios/Pods
-          key: ${{ runner.OS }}-archive-cache-${{ hashFiles('**/ios/ReactNativeAppSample.xcarchive') }}
-          restore-keys: |
-            ${{ runner.OS }}-archive-cache-
-
       - name: pods install
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
@@ -216,12 +207,11 @@ jobs:
       - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: mxcl/xcodebuild@v1
+        uses: sersoft-gmbh/xcodebuild-action@v2
         with:
-          platform: iOS
+          workspace: ios/ReactNativeAppSample.xcworkspace
+          scheme: ReactNativeAppSample
           action: build
-          configuration: 
-          working-directory: ios
 
       - name: iOS app export
         env:
