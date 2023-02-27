@@ -164,7 +164,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: 2.7.6
           bundler-cache: true
       - name: Cache Pods dependencies
         uses: actions/cache@v3
@@ -190,15 +190,15 @@ jobs:
           rm -rf Podfile.lock Pods
           sudo gem install cocoapods && pod install
 
-      - name: iOS app build (without export)
-        if: github.actor == 'dependabot[bot]'
+      - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: devbotsxyz/xcode-build@v1
+        uses: mxcl/xcodebuild@v1
         with:
-          workspace: ios/ReactNativeAppSample.xcworkspace
-          scheme: ReactNativeAppSample
-          code-sign-identity: destination
+          platform: iOS
+          action: build
+          configuration: 
+          working-directory: ios
 
   build-android:
     runs-on: macos-11
@@ -256,6 +256,10 @@ jobs:
           java-version: 11
 
       - name: Build and test for android
+        env:
+          DEFAULT_JVM_OPTS: -Xmx2048m -Xms512m
+          GRADLE_OPTS: -Xmx2048m -Xms512m
+          JAVA_OPTS: -Xmx2048m -Xms512m
         run: |
           cd android
           ./gradlew assembleDebug
