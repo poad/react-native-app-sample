@@ -193,7 +193,7 @@ jobs:
       - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: mxcl/xcodebuild@v1
+        uses: mxcl/xcodebuild@v2
         with:
           platform: iOS
           action: build
