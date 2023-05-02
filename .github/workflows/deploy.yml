@@ -34,7 +34,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout
@@ -71,7 +71,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - name: Show Xcode versions
@@ -254,7 +254,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout
@@ -296,11 +296,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: set up JDK 11
+      - name: set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'liberica'
-          java-version: 11
+          java-version: 17
 
       - name: Build and test for android
         env:
