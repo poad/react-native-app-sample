@@ -40,29 +40,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        id: yarn-cache
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      
+          version: 8.6.3
+          run_install: |
+            - recursive: false
+              args: [--no-frozen-lockfile, --strict-peer-dependencies]
+        
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           architecture: x64
 
-      - name: Install node modules
-        run: yarn install
-
       - name: Test
-        run: yarn test
+        run: pnpm test
 
   deploy-ios:
     runs-on: macos-11
@@ -124,26 +118,20 @@ jobs:
           echo "${PLIST}" >> ios/exportOptions.plist
           cat ios/exportOptions.plist
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        id: yarn-cache
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          version: 8.6.3
+          run_install: |
+            - recursive: false
+              args: [--no-frozen-lockfile, --strict-peer-dependencies]
       
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           architecture: x64
-
-      - name: Install node modules
-        run: yarn install
 
       - name: Configure Homebrew cache
         uses: actions/cache@v3
@@ -266,26 +254,20 @@ jobs:
           echo "ANDROID_CERTIFICATES_FILE_PATH=${ANDROID_CERTIFICATES_FILE_PATH}" >> $GITHUB_ENV
           echo ${{ secrets.ANDROID_CERTIFICATES_FILE_BASE64 }} | base64 -D -o ${ANDROID_CERTIFICATES_FILE_PATH}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        id: yarn-cache
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      
+          version: 8.6.3
+          run_install: |
+            - recursive: false
+              args: [--no-frozen-lockfile, --strict-peer-dependencies]
+              
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           architecture: x64
-
-      - name: Install node modules
-        run: yarn install
 
       - uses: actions/cache@v3
         with:
