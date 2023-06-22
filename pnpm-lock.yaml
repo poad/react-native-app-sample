@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   react:
     specifier: ^18.2.0
@@ -47,8 +43,8 @@ devDependencies:
     specifier: ^29.5.0
     version: 29.5.0
   metro-react-native-babel-preset:
-    specifier: ^0.76.6
-    version: 0.76.6(@babel/core@7.22.5)
+    specifier: ^0.76.7
+    version: 0.76.7(@babel/core@7.22.5)
   react-test-renderer:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -4721,8 +4717,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /metro-react-native-babel-preset@0.76.6(@babel/core@7.22.5):
-    resolution: {integrity: sha512-WswDzpHAW7QuD+u8ICTY1D7mGGQUVeZWr/e9bxfCCsQurH9l1eO0uxGzciMmNr9CzI5DTMtGeaA6Ol+1AH8F2A==}
+  /metro-react-native-babel-preset@0.76.7(@babel/core@7.22.5):
+    resolution: {integrity: sha512-R25wq+VOSorAK3hc07NW0SmN8z9S/IR0Us0oGAsBcMZnsgkbOxu77Mduqf+f4is/wnWHc5+9bfiqdLnaMngiVw==}
     engines: {node: '>=16'}
     peerDependencies:
       '@babel/core': '*'
@@ -6411,3 +6407,7 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
