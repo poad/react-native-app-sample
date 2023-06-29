@@ -1992,8 +1992,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@react-native/gradle-plugin@0.72.10:
-    resolution: {integrity: sha512-/3KZSdFOWpTCHlp468NOgNfSIhENEH44O3Xq+dmgp4kJ/WhTvCmI+7glJ0Io6T7AizcWlIuW5VKA2+Pb3GHXmg==}
+  /@react-native/gradle-plugin@0.72.11:
+    resolution: {integrity: sha512-P9iRnxiR2w7EHcZ0mJ+fmbPzMby77ZzV6y9sJI3lVLJzF7TLSdbwcQyD3lwMsiL+q5lKUHoZJS4sYmih+P2HXw==}
 
   /@react-native/js-polyfills@0.72.1:
     resolution: {integrity: sha512-cRPZh2rBswFnGt5X5EUEPs0r+pAsXxYsifv/fgy9ZLQokuT52bPH+9xjDR+7TafRua5CttGW83wP4TntRcWNDA==}
@@ -4960,7 +4960,7 @@ packages:
       '@react-native-community/cli-platform-ios': 11.3.2
       '@react-native/assets-registry': 0.72.0
       '@react-native/codegen': 0.72.6(@babel/preset-env@7.22.5)
-      '@react-native/gradle-plugin': 0.72.10
+      '@react-native/gradle-plugin': 0.72.11
       '@react-native/js-polyfills': 0.72.1
       '@react-native/normalize-colors': 0.72.0
       '@react-native/virtualized-lists': 0.72.5(react-native@0.72.0)(react-test-renderer@18.2.0)
