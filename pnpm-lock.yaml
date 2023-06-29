@@ -10,7 +10,7 @@ dependencies:
     version: 18.2.0
   react-native:
     specifier: ^0.72.0
-    version: 0.72.0(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(react-test-renderer@18.2.0)(react@18.2.0)
+    version: 0.72.0(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(react@18.2.0)
 
 devDependencies:
   '@babel/core':
@@ -27,7 +27,7 @@ devDependencies:
     version: 18.2.14
   '@types/react-native':
     specifier: ^0.72.2
-    version: 0.72.2(react-native@0.72.0)(react-test-renderer@18.2.0)
+    version: 0.72.2(react-native@0.72.0)
   '@types/react-test-renderer':
     specifier: ^18.0.0
     version: 18.0.0
@@ -2001,16 +2001,14 @@ packages:
   /@react-native/normalize-colors@0.72.0:
     resolution: {integrity: sha512-285lfdqSXaqKuBbbtP9qL2tDrfxdOFtIMvkKadtleRQkdOxx+uzGvFr82KHmc/sSiMtfXGp7JnFYWVh4sFl7Yw==}
 
-  /@react-native/virtualized-lists@0.72.5(react-native@0.72.0)(react-test-renderer@18.2.0):
-    resolution: {integrity: sha512-AtKE3dez3lf89O87wC2ZglV5aPsifopQgn/UmFhXAwi18Yp1BJfEGh3sUqOPNgZNByYPAGxFANeZq44VATXeJA==}
+  /@react-native/virtualized-lists@0.72.6(react-native@0.72.0):
+    resolution: {integrity: sha512-JhT6ydu35LvbSKdwnhWDuGHMOwM0WAh9oza/X8vXHA8ELHRyQ/4p8eKz/bTQcbQziJaaleUURToGhFuCtgiMoA==}
     peerDependencies:
       react-native: '*'
-      react-test-renderer: 18.2.0
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
-      react-native: 0.72.0(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(react-test-renderer@18.2.0)(react@18.2.0)
-      react-test-renderer: 18.2.0(react@18.2.0)
+      react-native: 0.72.0(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(react@18.2.0)
 
   /@sideway/address@4.1.4:
     resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==}
@@ -2106,14 +2104,13 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-native@0.72.2(react-native@0.72.0)(react-test-renderer@18.2.0):
+  /@types/react-native@0.72.2(react-native@0.72.0):
     resolution: {integrity: sha512-/eEjr04Zqo7mTMszuSdrLx90+j5nWhDMMOgtnKZfAYyV3RwmlpSb7F17ilmMMxZWJY81n/JZ4e6wdhMJFpjrCg==}
     dependencies:
-      '@react-native/virtualized-lists': 0.72.5(react-native@0.72.0)(react-test-renderer@18.2.0)
+      '@react-native/virtualized-lists': 0.72.6(react-native@0.72.0)
       '@types/react': 18.2.14
     transitivePeerDependencies:
       - react-native
-      - react-test-renderer
     dev: true
 
   /@types/react-test-renderer@18.0.0:
@@ -4947,7 +4944,7 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-native@0.72.0(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(react-test-renderer@18.2.0)(react@18.2.0):
+  /react-native@0.72.0(@babel/core@7.22.5)(@babel/preset-env@7.22.5)(react@18.2.0):
     resolution: {integrity: sha512-BP2qq5f05pl3zV+eYgW7nmjCV+3zLXs/Vm69xMTCLD34U2bvRhuWbuUhqpauw7fyk5c8+LrY9NKcnARCkqKXcw==}
     engines: {node: '>=16'}
     hasBin: true
@@ -4963,7 +4960,7 @@ packages:
       '@react-native/gradle-plugin': 0.72.10
       '@react-native/js-polyfills': 0.72.1
       '@react-native/normalize-colors': 0.72.0
-      '@react-native/virtualized-lists': 0.72.5(react-native@0.72.0)(react-test-renderer@18.2.0)
+      '@react-native/virtualized-lists': 0.72.6(react-native@0.72.0)
       abort-controller: 3.0.0
       anser: 1.4.10
       base64-js: 1.5.1
@@ -4996,7 +4993,6 @@ packages:
       - '@babel/preset-env'
       - bufferutil
       - encoding
-      - react-test-renderer
       - supports-color
       - utf-8-validate
 
@@ -5022,6 +5018,7 @@ packages:
       react-is: 18.2.0
       react-shallow-renderer: 16.15.0(react@18.2.0)
       scheduler: 0.23.0
+    dev: true
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -5175,6 +5172,7 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /scheduler@0.24.0-canary-efb381bbf-20230505:
     resolution: {integrity: sha512-ABvovCDe/k9IluqSh4/ISoq8tIJnW8euVAWYt5j/bg6dRnqwQwiGO1F/V4AyK96NGF/FB04FhOUDuWj8IKfABA==}
