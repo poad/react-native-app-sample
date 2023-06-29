@@ -61,8 +61,8 @@ devDependencies:
 
 packages:
 
-  /@aashutoshrathi/word-wrap@1.2.5:
-    resolution: {integrity: sha512-plhoNEfSVdHMKXQyAxvH0Zyv3/4NL8r6pwgMQdmHR2vBUXn2t74PN2pBRppqKUa6RMT0yldyvOHG5Dbjwy2mBQ==}
+  /@aashutoshrathi/word-wrap@1.2.6:
+    resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -4727,7 +4727,7 @@ packages:
     resolution: {integrity: sha512-W/Q5m5jpuspnghjVKWcs+5sm9Xl9BIdDmNLWaQbwneNQEZFosaiVPC9vtwN0Dbxx4x7TLY7bxjvttW26AmcKrQ==}
     engines: {node: '>= 0.8.0'}
     dependencies:
-      '@aashutoshrathi/word-wrap': 1.2.5
+      '@aashutoshrathi/word-wrap': 1.2.6
       deep-is: 0.1.4
       fast-levenshtein: 2.0.6
       levn: 0.4.1
