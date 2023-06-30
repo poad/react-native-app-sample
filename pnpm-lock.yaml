@@ -1934,7 +1934,7 @@ packages:
       chalk: 4.1.2
       find-up: 5.0.0
       mime: 2.6.0
-      node-fetch: 2.6.11
+      node-fetch: 2.6.12
       open: 6.4.0
       ora: 5.4.1
       semver: 6.3.0
@@ -4296,7 +4296,7 @@ packages:
     dependencies:
       connect: 3.7.0
       debug: 2.6.9
-      node-fetch: 2.6.11
+      node-fetch: 2.6.12
       ws: 7.5.9
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -4548,7 +4548,7 @@ packages:
       metro-transform-plugins: 0.76.5
       metro-transform-worker: 0.76.5
       mime-types: 2.1.35
-      node-fetch: 2.6.11
+      node-fetch: 2.6.12
       nullthrows: 1.1.1
       rimraf: 3.0.2
       serialize-error: 2.1.0
@@ -4645,8 +4645,8 @@ packages:
     dependencies:
       minimatch: 3.1.2
 
-  /node-fetch@2.6.11:
-    resolution: {integrity: sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==}
+  /node-fetch@2.6.12:
+    resolution: {integrity: sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
       encoding: ^0.1.0
