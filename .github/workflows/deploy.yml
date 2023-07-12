@@ -187,8 +187,8 @@ jobs:
       - name: pods install
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
+        working-directory: ios
         run: |
-          cd ios
           rm -rf Podfile.lock Pods
           sudo gem install cocoapods && pod install
 
@@ -290,9 +290,8 @@ jobs:
           DEFAULT_JVM_OPTS: -Xmx2048m -Xms512m
           GRADLE_OPTS: -Xmx2048m -Xms512m
           JAVA_OPTS: -Xmx2048m -Xms512m
-        run: |
-          cd android
-          ./gradlew assembleRelease
+        working-directory: android
+        run: ./gradlew assembleRelease
 
       - name: Lookup APK file
         run: |
