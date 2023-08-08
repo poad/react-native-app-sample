@@ -736,8 +736,8 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/template': 7.22.5
 
-  /@babel/plugin-transform-destructuring@7.22.5(@babel/core@7.22.9):
-    resolution: {integrity: sha512-GfqcFuGW8vnEqTUBM7UtPd5A4q797LTvvwKxXTgRsFjoqaJiEg9deBG6kWeQYkVEL569NpnmpC0Pkr/8BLKGnQ==}
+  /@babel/plugin-transform-destructuring@7.22.10(@babel/core@7.22.9):
+    resolution: {integrity: sha512-dPJrL0VOyxqLM9sritNbMSGx/teueHF/htMKrPT7DNxccXxRDPYqlgPFFdr8u+F+qUZOkZoXue/6rL5O5GduEw==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1241,7 +1241,7 @@ packages:
       '@babel/plugin-transform-class-static-block': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-classes': 7.22.6(@babel/core@7.22.9)
       '@babel/plugin-transform-computed-properties': 7.22.5(@babel/core@7.22.9)
-      '@babel/plugin-transform-destructuring': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-destructuring': 7.22.10(@babel/core@7.22.9)
       '@babel/plugin-transform-dotall-regex': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-duplicate-keys': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-dynamic-import': 7.22.5(@babel/core@7.22.9)
@@ -2485,7 +2485,7 @@ packages:
       '@babel/plugin-transform-block-scoping': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-classes': 7.22.6(@babel/core@7.22.9)
       '@babel/plugin-transform-computed-properties': 7.22.5(@babel/core@7.22.9)
-      '@babel/plugin-transform-destructuring': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-destructuring': 7.22.10(@babel/core@7.22.9)
       '@babel/plugin-transform-flow-strip-types': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-for-of': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-function-name': 7.22.5(@babel/core@7.22.9)
@@ -4293,7 +4293,7 @@ packages:
       '@babel/plugin-transform-block-scoping': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-classes': 7.22.6(@babel/core@7.22.9)
       '@babel/plugin-transform-computed-properties': 7.22.5(@babel/core@7.22.9)
-      '@babel/plugin-transform-destructuring': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-destructuring': 7.22.10(@babel/core@7.22.9)
       '@babel/plugin-transform-flow-strip-types': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-function-name': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-literals': 7.22.5(@babel/core@7.22.9)
@@ -4341,7 +4341,7 @@ packages:
       '@babel/plugin-transform-block-scoping': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-classes': 7.22.6(@babel/core@7.22.9)
       '@babel/plugin-transform-computed-properties': 7.22.5(@babel/core@7.22.9)
-      '@babel/plugin-transform-destructuring': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-destructuring': 7.22.10(@babel/core@7.22.9)
       '@babel/plugin-transform-flow-strip-types': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-function-name': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-literals': 7.22.5(@babel/core@7.22.9)
