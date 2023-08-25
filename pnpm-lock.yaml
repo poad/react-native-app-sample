@@ -932,8 +932,8 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-numeric-separator': 7.10.4(@babel/core@7.22.10)
 
-  /@babel/plugin-transform-object-rest-spread@7.22.5(@babel/core@7.22.10):
-    resolution: {integrity: sha512-Kk3lyDmEslH9DnvCDA1s1kkd3YWQITiBOHngOtDL9Pt6BZjzqb6hiOlb8VfjiiQJ2unmegBqZu0rx5RxJb5vmQ==}
+  /@babel/plugin-transform-object-rest-spread@7.22.11(@babel/core@7.22.10):
+    resolution: {integrity: sha512-nX8cPFa6+UmbepISvlf5jhQyaC7ASs/7UxHmMkuJ/k5xSHvDPPaibMo+v3TXwU/Pjqhep/nFNpd3zn4YR59pnw==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1249,7 +1249,7 @@ packages:
       '@babel/plugin-transform-new-target': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-nullish-coalescing-operator': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-numeric-separator': 7.22.5(@babel/core@7.22.10)
-      '@babel/plugin-transform-object-rest-spread': 7.22.5(@babel/core@7.22.10)
+      '@babel/plugin-transform-object-rest-spread': 7.22.11(@babel/core@7.22.10)
       '@babel/plugin-transform-object-super': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-optional-catch-binding': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-optional-chaining': 7.22.10(@babel/core@7.22.10)
