@@ -10,7 +10,7 @@ dependencies:
     version: 18.2.0
   react-native:
     specifier: ^0.72.4
-    version: 0.72.4(@babel/core@7.22.11)(@babel/preset-env@7.22.10)(react@18.2.0)
+    version: 0.72.4(@babel/core@7.22.11)(@babel/preset-env@7.22.14)(react@18.2.0)
 
 devDependencies:
   '@babel/core':
@@ -1188,8 +1188,8 @@ packages:
       '@babel/helper-create-regexp-features-plugin': 7.22.9(@babel/core@7.22.11)
       '@babel/helper-plugin-utils': 7.22.5
 
-  /@babel/preset-env@7.22.10(@babel/core@7.22.11):
-    resolution: {integrity: sha512-riHpLb1drNkpLlocmSyEg4oYJIQFeXAK/d7rI6mbD0XsvoTOOweXDmQPG/ErxsEhWk3rl3Q/3F6RFQlVFS8m0A==}
+  /@babel/preset-env@7.22.14(@babel/core@7.22.11):
+    resolution: {integrity: sha512-daodMIoVo+ol/g+//c/AH+szBkFj4STQUikvBijRGL72Ph+w+AMTSh55DUETe8KJlPlDT1k/mp7NBfOuiWmoig==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1918,15 +1918,15 @@ packages:
   /@react-native/assets-registry@0.72.0:
     resolution: {integrity: sha512-Im93xRJuHHxb1wniGhBMsxLwcfzdYreSZVQGDoMJgkd6+Iky61LInGEHnQCTN0fKNYF1Dvcofb4uMmE1RQHXHQ==}
 
-  /@react-native/codegen@0.72.6(@babel/preset-env@7.22.10):
+  /@react-native/codegen@0.72.6(@babel/preset-env@7.22.14):
     resolution: {integrity: sha512-idTVI1es/oopN0jJT/0jB6nKdvTUKE3757zA5+NPXZTeB46CIRbmmos4XBiAec8ufu9/DigLPbHTYAaMNZJ6Ig==}
     peerDependencies:
       '@babel/preset-env': ^7.1.6
     dependencies:
       '@babel/parser': 7.22.13
-      '@babel/preset-env': 7.22.10(@babel/core@7.22.11)
+      '@babel/preset-env': 7.22.14(@babel/core@7.22.11)
       flow-parser: 0.206.0
-      jscodeshift: 0.14.0(@babel/preset-env@7.22.10)
+      jscodeshift: 0.14.0(@babel/preset-env@7.22.14)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - supports-color
@@ -1947,7 +1947,7 @@ packages:
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
-      react-native: 0.72.4(@babel/core@7.22.11)(@babel/preset-env@7.22.10)(react@18.2.0)
+      react-native: 0.72.4(@babel/core@7.22.11)(@babel/preset-env@7.22.14)(react@18.2.0)
 
   /@sideway/address@4.1.4:
     resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==}
@@ -3984,7 +3984,7 @@ packages:
   /jsc-safe-url@0.2.4:
     resolution: {integrity: sha512-0wM3YBWtYePOjfyXQH5MWQ8H7sdk5EXSwZvmSLKk2RboVQ2Bu239jycHDz5J/8Blf3K0Qnoy2b6xD+z10MFB+Q==}
 
-  /jscodeshift@0.14.0(@babel/preset-env@7.22.10):
+  /jscodeshift@0.14.0(@babel/preset-env@7.22.14):
     resolution: {integrity: sha512-7eCC1knD7bLUPuSCwXsMZUH51O8jIcoVyKtI6P0XM0IVzlGjckPy3FIwQlorzbN0Sg79oK+RlohN32Mqf/lrYA==}
     hasBin: true
     peerDependencies:
@@ -3996,7 +3996,7 @@ packages:
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.22.11)
       '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.22.11)
       '@babel/plugin-transform-modules-commonjs': 7.22.11(@babel/core@7.22.11)
-      '@babel/preset-env': 7.22.10(@babel/core@7.22.11)
+      '@babel/preset-env': 7.22.14(@babel/core@7.22.11)
       '@babel/preset-flow': 7.22.5(@babel/core@7.22.11)
       '@babel/preset-typescript': 7.22.11(@babel/core@7.22.11)
       '@babel/register': 7.22.5(@babel/core@7.22.11)
@@ -4939,7 +4939,7 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-native@0.72.4(@babel/core@7.22.11)(@babel/preset-env@7.22.10)(react@18.2.0):
+  /react-native@0.72.4(@babel/core@7.22.11)(@babel/preset-env@7.22.14)(react@18.2.0):
     resolution: {integrity: sha512-+vrObi0wZR+NeqL09KihAAdVlQ9IdplwznJWtYrjnQ4UbCW6rkzZJebRsugwUneSOKNFaHFEo1uKU89HsgtYBg==}
     engines: {node: '>=16'}
     hasBin: true
@@ -4951,7 +4951,7 @@ packages:
       '@react-native-community/cli-platform-android': 11.3.6
       '@react-native-community/cli-platform-ios': 11.3.6
       '@react-native/assets-registry': 0.72.0
-      '@react-native/codegen': 0.72.6(@babel/preset-env@7.22.10)
+      '@react-native/codegen': 0.72.6(@babel/preset-env@7.22.14)
       '@react-native/gradle-plugin': 0.72.11
       '@react-native/js-polyfills': 0.72.1
       '@react-native/normalize-colors': 0.72.0
