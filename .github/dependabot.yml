@@ -21,6 +21,6 @@ updates:
     assignees:
       - poad
     groups:
-      nextjs:
+      react-native:
         patterns:
           - '*'
