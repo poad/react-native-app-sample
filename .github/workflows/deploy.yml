@@ -195,7 +195,7 @@ jobs:
       - name: iOS app build
         env:
           RCT_NO_LAUNCH_PACKAGER: 1
-        uses: sersoft-gmbh/xcodebuild-action@v2
+        uses: sersoft-gmbh/xcodebuild-action@v3
         with:
           workspace: ios/ReactNativeAppSample.xcworkspace
           scheme: ReactNativeAppSample
