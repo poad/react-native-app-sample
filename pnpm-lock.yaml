@@ -1780,6 +1780,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /@react-native-community/cli-debugger-ui@12.3.0:
+    resolution: {integrity: sha512-w3b0iwjQlk47GhZWHaeTG8kKH09NCMUJO729xSdMBXE8rlbm4kHpKbxQY9qKb6NlfWSJN4noGY+FkNZS2rRwnQ==}
+    dependencies:
+      serve-static: 1.15.0
+    transitivePeerDependencies:
+      - supports-color
+
   /@react-native-community/cli-doctor@12.1.1:
     resolution: {integrity: sha512-IUZJ/KUCuz+IzL9GdHUlIf6zF93XadxCBDPseUYb0ucIS+rEb3RmYC+IukYhUWwN3y4F/yxipYy3ytKrQ33AxA==}
     dependencies:
@@ -1859,8 +1866,42 @@ packages:
       - supports-color
       - utf-8-validate
 
+  /@react-native-community/cli-server-api@12.3.0:
+    resolution: {integrity: sha512-Rode8NrdyByC+lBKHHn+/W8Zu0c+DajJvLmOWbe2WY/ECvnwcd9MHHbu92hlT2EQaJ9LbLhGrSbQE3cQy9EOCw==}
+    dependencies:
+      '@react-native-community/cli-debugger-ui': 12.3.0
+      '@react-native-community/cli-tools': 12.3.0
+      compression: 1.7.4
+      connect: 3.7.0
+      errorhandler: 1.5.1
+      nocache: 3.0.4
+      pretty-format: 26.6.2
+      serve-static: 1.15.0
+      ws: 7.5.9
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
+
   /@react-native-community/cli-tools@12.1.1:
     resolution: {integrity: sha512-c9vjDVojZnivGsLoVoTZsJjHnwBEI785yV8mgyKTVFx1sciK8lCsIj1Lke7jNpz7UAE1jW94nI7de2B1aQ9rbA==}
+    dependencies:
+      appdirsjs: 1.2.7
+      chalk: 4.1.2
+      find-up: 5.0.0
+      mime: 2.6.0
+      node-fetch: 2.7.0
+      open: 6.4.0
+      ora: 5.4.1
+      semver: 7.5.4
+      shell-quote: 1.8.1
+      sudo-prompt: 9.2.1
+    transitivePeerDependencies:
+      - encoding
+
+  /@react-native-community/cli-tools@12.3.0:
+    resolution: {integrity: sha512-2GafnCr8D88VdClwnm9KZfkEb+lzVoFdr/7ybqhdeYM0Vnt/tr2N+fM1EQzwI1DpzXiBzTYemw8GjRq+Utcz2Q==}
     dependencies:
       appdirsjs: 1.2.7
       chalk: 4.1.2
@@ -1991,13 +2032,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@react-native/community-cli-plugin@0.73.10(@babel/core@7.23.6)(@babel/preset-env@7.23.6):
-    resolution: {integrity: sha512-e9kWr1SpVsu0qoHzxtgJCKojvVwaNUfyXXGEFSvQue4zNhuzzoC3Bk9bsJgA1+W7ur4ajRbhz3lnBV8v6lmsbw==}
+  /@react-native/community-cli-plugin@0.73.11(@babel/core@7.23.6)(@babel/preset-env@7.23.6):
+    resolution: {integrity: sha512-s0bprwljKS1Al8wOKathDDmRyF+70CcNE2G/aqZ7+L0NoOE0Uxxx/5P2BxlM2Mfht7O33B4SeMNiPdE/FqIubQ==}
     engines: {node: '>=18'}
     dependencies:
-      '@react-native-community/cli-server-api': 12.1.1
-      '@react-native-community/cli-tools': 12.1.1
-      '@react-native/dev-middleware': 0.73.5
+      '@react-native-community/cli-server-api': 12.3.0
+      '@react-native-community/cli-tools': 12.3.0
+      '@react-native/dev-middleware': 0.73.6
       '@react-native/metro-babel-transformer': 0.73.12(@babel/core@7.23.6)(@babel/preset-env@7.23.6)
       chalk: 4.1.2
       execa: 5.1.1
@@ -2014,16 +2055,16 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /@react-native/debugger-frontend@0.73.2:
-    resolution: {integrity: sha512-YDCerm7FwaWMsc4zVBWQ3jMuFoq+a3DGhS4LAynwsFqCyo8Gmir2ARvmOHQdqZZ2KrBWqaIyiHh1nJ/UrAJntw==}
+  /@react-native/debugger-frontend@0.73.3:
+    resolution: {integrity: sha512-RgEKnWuoo54dh7gQhV7kvzKhXZEhpF9LlMdZolyhGxHsBqZ2gXdibfDlfcARFFifPIiaZ3lXuOVVa4ei+uPgTw==}
     engines: {node: '>=18'}
 
-  /@react-native/dev-middleware@0.73.5:
-    resolution: {integrity: sha512-Ca9RHPaQXQn9yZke4n8sG09u+RuWpQun4imKg3tuykwPH3UrTTSSxoP/I04xdxsAOxaCkCl/ZdgL6SiAmzxWiQ==}
+  /@react-native/dev-middleware@0.73.6:
+    resolution: {integrity: sha512-9SD7gIso+hO1Jy1Y/Glbd+JWQwyH7Xjnwebtkxdm5TMB51LQPjaGtMcwEigbIZyAtvoaDGmhWmudwbKpDlS+gA==}
     engines: {node: '>=18'}
     dependencies:
       '@isaacs/ttlcache': 1.4.1
-      '@react-native/debugger-frontend': 0.73.2
+      '@react-native/debugger-frontend': 0.73.3
       chrome-launcher: 0.15.2
       chromium-edge-launcher: 1.0.0
       connect: 3.7.0
@@ -2072,8 +2113,8 @@ packages:
       react-native: 0.73.0(@babel/core@7.23.6)(@babel/preset-env@7.23.6)(react@18.2.0)
     dev: true
 
-  /@react-native/virtualized-lists@0.73.3(react-native@0.73.0):
-    resolution: {integrity: sha512-3qPNlLk9T2+qZpqcB1lvuy5LjeQezNNG/oV1GMyTrXR8lf/gFgsz2+ZxlmpNt3S4/jBypQbHOpGi6K+DjrN96A==}
+  /@react-native/virtualized-lists@0.73.4(react-native@0.73.0):
+    resolution: {integrity: sha512-HpmLg1FrEiDtrtAbXiwCgXFYyloK/dOIPIuWW3fsqukwJEWAiTzm1nXGJ7xPU5XTHiWZ4sKup5Ebaj8z7iyWog==}
     engines: {node: '>=18'}
     peerDependencies:
       react-native: '*'
@@ -2659,7 +2700,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001570
-      electron-to-chromium: 1.4.612
+      electron-to-chromium: 1.4.613
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
 
@@ -3035,8 +3076,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.612:
-    resolution: {integrity: sha512-dM8BMtXtlH237ecSMnYdYuCkib2QHq0kpWfUnavjdYsyr/6OsAwg5ZGUfnQ9KD1Ga4QgB2sqXlB2NT8zy2GnVg==}
+  /electron-to-chromium@1.4.613:
+    resolution: {integrity: sha512-r4x5+FowKG6q+/Wj0W9nidx7QO31BJwmR2uEo+Qh3YLGQ8SbBAFuDFpTxzly/I2gsbrFwBuIjrMp423L3O5U3w==}
 
   /emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -4989,11 +5030,11 @@ packages:
       '@react-native-community/cli-platform-ios': 12.1.1
       '@react-native/assets-registry': 0.73.1
       '@react-native/codegen': 0.73.2(@babel/preset-env@7.23.6)
-      '@react-native/community-cli-plugin': 0.73.10(@babel/core@7.23.6)(@babel/preset-env@7.23.6)
+      '@react-native/community-cli-plugin': 0.73.11(@babel/core@7.23.6)(@babel/preset-env@7.23.6)
       '@react-native/gradle-plugin': 0.73.4
       '@react-native/js-polyfills': 0.73.1
       '@react-native/normalize-colors': 0.73.2
-      '@react-native/virtualized-lists': 0.73.3(react-native@0.73.0)
+      '@react-native/virtualized-lists': 0.73.4(react-native@0.73.0)
       abort-controller: 3.0.0
       anser: 1.4.10
       ansi-regex: 5.0.1
