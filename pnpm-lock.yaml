@@ -2623,7 +2623,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001578
-      electron-to-chromium: 1.4.634
+      electron-to-chromium: 1.4.636
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
 
@@ -2999,8 +2999,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.634:
-    resolution: {integrity: sha512-gQNahJfF5AE4MZo+pMSwmnwkzVZ+F4ZGGj4Z/MMddOXVQM0y9OHy6ts3W9SDzAJaiZM3p6eixn5ABCQ+AfXzcQ==}
+  /electron-to-chromium@1.4.636:
+    resolution: {integrity: sha512-NLE0GIy1OL9wRiKL20h9TkctBEYZuc99tquSS9MVdTahnuHputoETHeqDzgqGqyOY9NUH0g9wjfEuw5OD+wRcQ==}
 
   /emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -4373,7 +4373,7 @@ packages:
     resolution: {integrity: sha512-cuxfRZWDWGKjh+Z6t4KJkrvmV4JUKXfvQuAX7Pa7U0Mf1YJdLtoGQ5iVOu/6MkfYGXbppqGk2qmFECrRGRh0cA==}
     engines: {node: '>=18'}
     dependencies:
-      terser: 5.26.0
+      terser: 5.27.0
 
   /metro-react-native-babel-preset@0.77.0(@babel/core@7.23.7):
     resolution: {integrity: sha512-HPPD+bTxADtoE4y/4t1txgTQ1LVR6imOBy7RMHUsqMVTbekoi8Ph5YI9vKX2VMPtVWeFt0w9YnCSLPa76GcXsA==}
@@ -5425,8 +5425,8 @@ packages:
     dependencies:
       rimraf: 2.6.3
 
-  /terser@5.26.0:
-    resolution: {integrity: sha512-dytTGoE2oHgbNV9nTzgBEPaqAWvcJNl66VZ0BkJqlvp71IjO8CxdBx/ykCNb47cLnCmCvRZ6ZR0tLkqvZCdVBQ==}
+  /terser@5.27.0:
+    resolution: {integrity: sha512-bi1HRwVRskAjheeYl291n3JC4GgO/Ty4z1nVs5AAsmonJulGxpSektecnNedrwK9C7vpvVtcX3cw00VSLt7U2A==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
