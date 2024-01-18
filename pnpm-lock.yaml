@@ -1768,7 +1768,7 @@ packages:
       cosmiconfig: 5.2.1
       deepmerge: 4.3.1
       glob: 7.2.3
-      joi: 17.11.1
+      joi: 17.12.0
     transitivePeerDependencies:
       - encoding
 
@@ -1877,7 +1877,7 @@ packages:
   /@react-native-community/cli-types@12.3.0:
     resolution: {integrity: sha512-MgOkmrXH4zsGxhte4YqKL7d+N8ZNEd3w1wo56MZlhu5WabwCJh87wYpU5T8vyfujFLYOFuFK5jjlcbs8F4/WDw==}
     dependencies:
-      joi: 17.11.1
+      joi: 17.12.0
 
   /@react-native-community/cli@12.3.0:
     resolution: {integrity: sha512-XeQohi2E+S2+MMSz97QcEZ/bWpi8sfKiQg35XuYeJkc32Til2g0b97jRpn0/+fV0BInHoG1CQYWwHA7opMsrHg==}
@@ -2623,7 +2623,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001578
-      electron-to-chromium: 1.4.636
+      electron-to-chromium: 1.4.637
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
 
@@ -2999,8 +2999,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.636:
-    resolution: {integrity: sha512-NLE0GIy1OL9wRiKL20h9TkctBEYZuc99tquSS9MVdTahnuHputoETHeqDzgqGqyOY9NUH0g9wjfEuw5OD+wRcQ==}
+  /electron-to-chromium@1.4.637:
+    resolution: {integrity: sha512-G7j3UCOukFtxVO1vWrPQUoDk3kL70mtvjc/DC/k2o7lE0wAdq+Vwp1ipagOow+BH0uVztFysLWbkM/RTIrbK3w==}
 
   /emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -4066,8 +4066,8 @@ packages:
       - ts-node
     dev: true
 
-  /joi@17.11.1:
-    resolution: {integrity: sha512-671acnrx+w96PCcQOzvm0VYQVwNL2PVgZmDRaFuSsx8sIUmGzYElPw5lU8F3Cr0jOuPs1oM56p7W2a1cdDOwcw==}
+  /joi@17.12.0:
+    resolution: {integrity: sha512-HSLsmSmXz+PV9PYoi3p7cgIbj06WnEBNT28n+bbBNcPZXZFqCzzvGqpTBPujx/Z0nh1+KNQPDrNgdmQ8dq0qYw==}
     dependencies:
       '@hapi/hoek': 9.3.0
       '@hapi/topo': 5.1.0
