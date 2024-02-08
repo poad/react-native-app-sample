@@ -40,7 +40,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         name: Install pnpm
         id: pnpm-install
         with:
@@ -118,7 +118,7 @@ jobs:
           echo "${PLIST}" >> ios/exportOptions.plist
           cat ios/exportOptions.plist
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         name: Install pnpm
         id: pnpm-install
         with:
@@ -254,7 +254,7 @@ jobs:
           echo "ANDROID_CERTIFICATES_FILE_PATH=${ANDROID_CERTIFICATES_FILE_PATH}" >> $GITHUB_ENV
           echo ${{ secrets.ANDROID_CERTIFICATES_FILE_BASE64 }} | base64 -D -o ${ANDROID_CERTIFICATES_FILE_PATH}
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         name: Install pnpm
         id: pnpm-install
         with:
